@@ -1,34 +1,19 @@
 package ru.job4j.cache;
 
-import ru.job4j.cache.factory.AbstractCacheFactory;
-import ru.job4j.cache.factory.DatabaseCacheFactory;
-import ru.job4j.cache.factory.DirFileCacheFactory;
-import ru.job4j.cache.factory.QueueCacheFactory;
 import ru.job4j.cache.product.AbstractCache;
+import ru.job4j.cache.product.DirFileCache;
 
 import java.util.Scanner;
 
 public class Emulator {
 
-    public static Scanner scanner = new Scanner(System.in);
+    public Scanner scanner = new Scanner(System.in);
     private AbstractCache<String, String> cache;
-    private AbstractCacheFactory<String, String> factory;
 
-    public void emulate(CacheType type) {
-        switch (type) {
-            case DIR_FILE:
-                factory = new DirFileCacheFactory();
-                break;
-            case DATABASE:
-                factory = new DatabaseCacheFactory();
-                break;
-            case QUEUE:
-                factory = new QueueCacheFactory();
-                break;
-            default:
-                throw new RuntimeException("Cache type not found");
-        }
-        cache = factory.createCache();
+    public void emulate() {
+        System.out.println("Enter directory: ");
+        String dir = scanner.nextLine();
+        cache = new DirFileCache(dir);
         String state;
         do {
             System.out.println("Enter the key to load and get content: ");

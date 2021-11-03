@@ -25,7 +25,7 @@ public class EmulatorTest {
         System.setIn(is);
 
         Emulator emulator = new Emulator();
-        emulator.emulate(CacheType.DIR_FILE);
+        emulator.emulate();
 
         String output = os.toString();
         String[] result = output.split(System.lineSeparator());
