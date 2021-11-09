@@ -21,5 +21,12 @@ public abstract class AbstractCache<K, V> {
         return value;
     }
 
+    public void save(K key) {
+        boolean result = false;
+        if (!cache.containsKey(key)) {
+            put(key, load(key));
+        }
+    }
+
     protected abstract V load(K key);
 }
