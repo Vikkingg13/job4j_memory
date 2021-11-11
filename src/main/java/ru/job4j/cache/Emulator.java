@@ -1,11 +1,12 @@
 package ru.job4j.cache;
 
-import ru.job4j.cache.product.AbstractCache;
-import ru.job4j.cache.product.DirFileCache;
-
 import java.util.Scanner;
 
 public class Emulator {
+
+    private static final String GET_ACTION = "1";
+    private static final String SAVE_ACTION = "2";
+    private static final String EXIT_ACTION = "3";
 
     public Scanner scanner = new Scanner(System.in);
     private AbstractCache<String, String> cache;
@@ -24,21 +25,21 @@ public class Emulator {
             System.out.println("3. Exit");
             answer = scanner.nextLine();
             switch (answer) {
-                case "1" -> {
+                case GET_ACTION -> {
                     System.out.println("Enter filename to get content: ");
                     input = scanner.nextLine();
                     String result = cache.get(input);
                     System.out.println("Content: ");
                     System.out.println(result);
                 }
-                case "2" -> {
+                case SAVE_ACTION -> {
                     System.out.println("Enter filename to save content: ");
                     input = scanner.nextLine();
                     cache.save(input);
                     System.out.println("Saved");
 
                 }
-                case "3" -> {
+                case EXIT_ACTION -> {
                     System.out.println("Exit");
                     return;
                 }

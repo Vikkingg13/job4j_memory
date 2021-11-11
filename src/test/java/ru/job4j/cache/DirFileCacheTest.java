@@ -2,7 +2,6 @@ package ru.job4j.cache;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.job4j.cache.product.DirFileCache;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

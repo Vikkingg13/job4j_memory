@@ -9,8 +9,6 @@ import static org.junit.Assert.assertEquals;
 
 public class EmulatorTest {
 
-    private final String ln = System.lineSeparator();
-
     @Test
     public void whenRunEmulatorThenOutputMessages() {
         OutputStream os = new ByteArrayOutputStream();

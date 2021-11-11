@@ -1,4 +1,4 @@
-package ru.job4j.cache.product;
+package ru.job4j.cache;
 
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ public abstract class AbstractCache<K, V> {
     public V get(K key) {
         V value = cache.getOrDefault(key, new SoftReference<>(null)).get();
         if (value == null) {
-            cache.put(key, new SoftReference<>(load(key)));
+            put(key, load(key));
             value = cache.get(key).get();
         }
         return value;
