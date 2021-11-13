@@ -22,7 +22,6 @@ public abstract class AbstractCache<K, V> {
     }
 
     public void save(K key) {
-        boolean result = false;
         if (!cache.containsKey(key)) {
             put(key, load(key));
         }
